@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface ViewController ()
 
@@ -16,8 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
+-(UIImagePickerController *)picker{
+    picker = [[UIImagePickerController alloc] init];
+    picker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    picker.delegate = self;
+    return picker;
+}
+- (IBAction)click_start:(UIButton *)sender {
+    [self presentViewController:[self picker] animated:true completion:nil];
+}
 
+-(void) viewWillAppear:(BOOL)animated{
+    
+}
 @end

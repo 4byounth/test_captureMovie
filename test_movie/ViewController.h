@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
+    UIImagePickerController *picker;
+}
+- (IBAction)click_start:(UIButton *)sender;
 
-
+-(UIImagePickerController *)picker;
 @end
 
